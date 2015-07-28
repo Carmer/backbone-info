@@ -1,6 +1,7 @@
 # Backbone.js
 ==========================
-## An introduction to Backbone.js - IdeaBox style
+## An introduction to Backbone.js - IdeaBox Style
+A warning about learning backbone: Watch the capitalization between classes and instances of the class.  
 ### Models
 
 Create Models: Idea class
