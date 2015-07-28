@@ -1,6 +1,6 @@
 # Backbone.js
 ==========================
-## An introduction to Backbone.js - IdeaBox
+## An introduction to Backbone.js - IdeaBox style
 ### Models
 
 Create Models: Idea class
