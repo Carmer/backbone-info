@@ -4,12 +4,12 @@
 A warning about learning backbone: Watch the capitalization between classes and instances of the class.  
 ### Models
 
-Create Models: Idea class
+Create Models:
 ```
 var Idea = Backbone.Model.extend({});
 ```
 
-Create Model instance: instance of Idea class
+Create Model instance:
 * var idea = new Idea({
   title: 'Coffee cookies'
   description: 'Caffeinated cookies that taste like chocolate. Mmm. cookies.',
@@ -23,7 +23,7 @@ Get a data attribute:
  idea.get('description');
  ```
 
-To set an attribute:
+Set an attribute:
 ```
  idea.set({title: "Cafe Biscuits"});
 ```
@@ -36,6 +36,7 @@ Sync to the server:
 ### Displayting Data
 Create a view class
 ```
+// notice the class variable nameing style begins capitalized
 IdeaView = Backbone.View.extend({
   render: function(){
     var html = '<h3>' + this.model.get('title') + ': ' + this.model.get('description') + '<h3>';
@@ -43,19 +44,15 @@ IdeaView = Backbone.View.extend({
   }
   });
 ```
-this.el is the view (el)ement associated with the html. The element is a div my default but can be anything (p, li, header, section ...)
+this.el is the view element associated with the html. The element is a div my default but can be anything (p, li, header, section ...)
 
 Render view by calling ```render(); ```
 ```
- var ideaView = new IdeaView({ model: idea });  //notice the instance variable name of the model
+ var ideaView = new IdeaView({ model: idea });  // notice the instance variable name of the model begins uncapitalized.
  ```
  ```
  ideaView.render();
  console.log(ideaView.el);
- ```
- or:
- ```
- $('#idName').html(ideaView.el);
  ```
 
  which will render:
@@ -81,7 +78,7 @@ Populate your model from the server:
 idea.fetch();
 ```
 the above fetch function gets the whole model instance:
-* {id: 1, title: 'Caffeinated cookies', description: 'Caffeinated cookies that taste like chocolate. Mmm. cookies.', };
+* {id: 1, title: 'Caffeinated cookies', description: 'Caffeinated cookies that taste like chocolate. Mmm. cookies.' }
 
 Where as:
 ```
@@ -102,12 +99,12 @@ var newIdea = new Idea({id: 1});
 ```
 This will give us the route: 'ideas/1' and to get the information for our newIdea instance we need to use the fetch() function.
 ```
-newIdea.fetch(); // => GET /ideas/1
+newIdea.fetch(); // => GET '/ideas/1'
 ```
 Updating the idea is as easy as using the .set() and .save() functions:
 ```
 newIdea.set({description: 'decaffeinated cookies will be tasty, and ordinary.'});
-newIdea.save(); // => PUT /ideas/1 with JSON params
+newIdea.save(); // => PUT '/ideas/1' with JSON params
 ```
 
 ### Creating a New Idea: CRUD
@@ -121,7 +118,7 @@ newestIdea.set({
   id: 2
   });
 
-  newestIdea.save(); // => POST /ideas with JSON params
+  newestIdea.save(); // => POST '/ideas' with JSON params
 
 ```
 
@@ -131,7 +128,7 @@ newestIdea.get('id'); // => which will return us: 2
 ```
 And to delete an idea we can just call the destroy function.
 ```
-newestIdea.destroy(); // DELETE => /ideas/2
+newestIdea.destroy(); // => DELET '/ideas/2'
 ```
 If we want to get the JSON object out of our model, to say... i don't know, render it in the view later, we can call toJSON
 ```
@@ -200,7 +197,7 @@ Special events:
 
 ```
 bestIdea.on('event-name', function(){
-  alert('event-name happened');
+    alert('event-name happened');
   });
 ```
 
@@ -245,9 +242,9 @@ Actually, we can specify more than the tag of the view. We can specify id's and 
 
 ```
 var IdeaView = Backbone.View.extend({
-  tagName: 'li',
-  id: 'idea-view',
-  class: 'idea'
+    tagName: 'li',
+    id: 'idea-view',
+    class: 'idea'
   });
 ```
 
@@ -278,8 +275,8 @@ earlier we had:
 ```
 IdeaView = Backbone.View.extend({
   render: function(){
-    var html = '<h3>' + this.model.get('title') + ': ' + this.model.get('description') + '<h3>';
-    $(this.el).html(html);
+      var html = '<h3>' + this.model.get('title') + ': ' + this.model.get('description') + '<h3>';
+      $(this.el).html(html);
     }
   });
 ```
@@ -289,9 +286,9 @@ And now we can tie together some of the concepts we have learned to change this 
 ```
 var IdeaView = Backbone.View.extend({
   template: _.template('<h3><%= title %> : <%= description %></h3>'),
-  render: function() {
-    var attributes = this.model.toJSON();
-    this.$el.html(this.template(attributes));
+    render: function() {
+      var attributes = this.model.toJSON();
+      this.$el.html(this.template(attributes));
     }
   });
 ```
@@ -311,10 +308,10 @@ console.log(ideaView.el);  // => <h3>Caffeinated cookies: Caffeinated cookies th
 Backbone allows us to specify events that are scoped within View Models. We can specify these events like this:
 ```
 var SampleView = Backbone.View.Extend({
-  events: {
-    "<event> <html-selector>": "<function>"
-  },
-  ...
+    events: {
+      "<event> <html-selector>": "<function>"
+    },
+    ...
   })
 ```
 
@@ -324,10 +321,10 @@ a simple example of this would be:
 var IdeaView = Backbone.View.extend({
   events: {
     "click .idea": "eventExampleFunction"
-  },
-  eventExampleFunction: function() {
-    alert("You clicked on an idea!")
-  };
+    },
+      eventExampleFunction: function() {
+        alert("You clicked on an idea!")
+      };
   })
 ```
 We can use jQuery and get all the jQuery events.
