@@ -1,1 +1,1 @@
-# Introduction to Backbone.js
+# Introduction to Backbone.js via IdeaBox
