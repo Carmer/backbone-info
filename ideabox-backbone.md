@@ -185,12 +185,12 @@ bestIdea.off('change', doThing);
 there are other special, built-in events in backbone.js
 
 Special events:
-* change -> When attribute is modified
+* change        -> When attribute is modified
 * change:<attr> -> When a specific attribute, <attr>, is modified
-* destroy: -> When a model is destroyed
-* sync: -> When successfully synced
-* error: -> When model save or validation fails
-* all: -> Any triggered evernt
+* destroy:      -> When a model is destroyed
+* sync:         -> When successfully synced
+* error:        -> When model save or validation fails
+* all:          -> Any triggered evernt
 
 
 ### You Can Add Your Own Events Too.
@@ -201,7 +201,7 @@ bestIdea.on('event-name', function(){
   });
 ```
 
-...this is much like jQuery.
+...much like jQuery.
 
 ========================================================================================
 
@@ -220,7 +220,7 @@ console.log(idesView.el); // => <div></div>
 
 First we create a new class or model of the Idea View.
 Then, we instantiate an instance of the new view class.
-Finally we console.log the (el)ement of the view. By default it is a <div>, but we can set it to whatever HTML element our heart desires. For example:
+Finally we console.log the (el)ement of the view. By default it is a ```<div>``` , but we can set it to whatever HTML element our heart desires. For example:
 
 ```
 var IdeaView = Backbone.View.extend({tagName: 'ul'})
