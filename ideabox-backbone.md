@@ -15,12 +15,13 @@ var Idea = Backbone.Model.extend({});
 ```
 
 Create Model instance:
-* var idea = new Idea({
-  title: 'Coffee cookies'
-  description: 'Caffeinated cookies that taste like chocolate. Mmm. cookies.',
-  ,
-  id: 1
+```
+ var idea = new Idea({
+  id: 1,
+  title: 'Coffee cookies',
+  description: 'Caffeinated cookies that taste like chocolate. Mmm. cookies.'
   });
+```
 
 ### Getting and Setting Data:
 Get a data attribute:
